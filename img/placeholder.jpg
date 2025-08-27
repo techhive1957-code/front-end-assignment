@@ -1,0 +1,7 @@
+<script>
+  // Fallback for any broken <img>
+  document.addEventListener('error', function (e) {
+    const t = e.target;
+    if (t.tagName === 'IMG') { t.onerror = null; t.src = 'img/placeholder.jpg'; }
+  }, true);
+</script>

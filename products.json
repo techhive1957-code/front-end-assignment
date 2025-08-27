@@ -1,0 +1,512 @@
+{
+  "products": [
+    {
+      "id": "g305",
+      "type": "mouse",
+      "category": "mouse",
+      "brand": "Logitech G",
+      "model": "G305 Lightspeed",
+      "name": "Logitech G G305 Lightspeed",
+      "price": 234.95,
+      "images": [
+        "img/g305-1.jpg",
+        "img/g305-2.jpg",
+        "img/g305-3.jpg"
+      ],
+      "dimensions": {
+        "w": 62,
+        "l": 116,
+        "h": 38
+      },
+      "weight": 99,
+      "grip": [
+        "claw",
+        "finger"
+      ],
+      "handSizeFit": "small",
+      "sensor": "HERO 12K",
+      "dpi": "200–12000",
+      "switch": "Mechanical",
+      "polling": "1000 Hz",
+      "connectivity": "2.4G",
+      "battery": "250h",
+      "lighting": "none",
+      "layout": null,
+      "switchType": null,
+      "mic": null,
+      "drivers": null,
+      "surround": null,
+      "rating": 4,
+      "features": [
+        "Onboard memory",
+        "6 buttons",
+        "Low-latency wireless"
+      ],
+      "newproduct": false,
+      "bestseller": true
+    },
+    {
+      "id": "viper-mini",
+      "type": "mouse",
+      "category": "mouse",
+      "brand": "Razer",
+      "model": "Viper Mini",
+      "name": "Razer Viper Mini",
+      "price": 187.95,
+      "images": [
+        "img/viper-mini-1.jpg",
+        "img/viper-mini-2.jpg"
+      ],
+      "dimensions": {
+        "w": 61,
+        "l": 118,
+        "h": 38
+      },
+      "weight": 61,
+      "grip": [
+        "claw",
+        "finger"
+      ],
+      "handSizeFit": "small",
+      "sensor": "PixArt PMW3359",
+      "dpi": "200–8500",
+      "switch": "Optical",
+      "polling": "1000 Hz",
+      "connectivity": "wired",
+      "battery": null,
+      "lighting": "RGB",
+      "layout": null,
+      "switchType": null,
+      "mic": null,
+      "drivers": null,
+      "surround": null,
+      "rating": 5,
+      "features": [
+        "Ultra-light 61g",
+        "Speedflex cable",
+        "PTFE feet"
+      ],
+      "newproduct": false,
+      "bestseller": false
+    },
+    {
+      "id": "pulsar-xlitev2-l",
+      "type": "mouse",
+      "category": "mouse",
+      "brand": "Pulsar",
+      "model": "Xlite V2 Large Wireless",
+      "name": "Pulsar Xlite V2 Large Wireless",
+      "price": 422.95,
+      "images": [
+        "img/pulsar-xlitev2l-1.jpg",
+        "img/pulsar-xlitev2l-2.jpg"
+      ],
+      "dimensions": {
+        "w": 66,
+        "l": 129,
+        "h": 42
+      },
+      "weight": 59,
+      "grip": [
+        "palm",
+        "claw",
+        "finger"
+      ],
+      "handSizeFit": "large",
+      "sensor": "PAW3370",
+      "dpi": "50–20000",
+      "switch": "Optical",
+      "polling": "1000 Hz",
+      "connectivity": "2.4G",
+      "battery": "70h",
+      "lighting": "RGB",
+      "layout": null,
+      "switchType": null,
+      "mic": null,
+      "drivers": null,
+      "surround": null,
+      "rating": 4,
+      "features": [
+        "Ergo large shell",
+        "PTFE feet",
+        "Onboard memory"
+      ],
+      "newproduct": false,
+      "bestseller": false
+    },
+    {
+      "id": "gpx2",
+      "type": "mouse",
+      "category": "mouse",
+      "brand": "Logitech G",
+      "model": "Pro X Superlight 2",
+      "name": "Logitech G Pro X Superlight 2",
+      "price": 751.95,
+      "images": [
+        "img/gpx2-1.jpg",
+        "img/gpx2-2.jpg",
+        "img/gpx2-3.jpg"
+      ],
+      "dimensions": {
+        "w": 63.5,
+        "l": 125,
+        "h": 40
+      },
+      "weight": 60,
+      "grip": [
+        "claw",
+        "palm",
+        "finger"
+      ],
+      "handSizeFit": "medium",
+      "sensor": "HERO 32K",
+      "dpi": "100–32000",
+      "switch": "Hybrid optical-mech",
+      "polling": "4000 Hz",
+      "connectivity": "2.4G",
+      "battery": "95h",
+      "lighting": "none",
+      "layout": null,
+      "switchType": null,
+      "mic": null,
+      "drivers": null,
+      "surround": null,
+      "rating": 5,
+      "features": [
+        "60g weight",
+        "PTFE feet",
+        "Zero-additive glide"
+      ],
+      "newproduct": false,
+      "bestseller": true
+    },
+    {
+      "id": "g213",
+      "type": "keyboard",
+      "category": "keyboard",
+      "brand": "Logitech G",
+      "model": "G213 Prodigy",
+      "name": "Logitech G G213 Prodigy",
+      "price": 234.95,
+      "images": [
+        "img/g213-1.jpg",
+        "img/g213-2.jpg"
+      ],
+      "dimensions": {
+        "w": 452,
+        "l": 218,
+        "h": 33
+      },
+      "weight": 1000,
+      "grip": null,
+      "handSizeFit": null,
+      "sensor": null,
+      "dpi": null,
+      "switch": null,
+      "polling": "1000 Hz",
+      "connectivity": "wired",
+      "battery": null,
+      "lighting": "RGB",
+      "layout": "100%",
+      "switchType": "Membrane",
+      "mic": null,
+      "drivers": null,
+      "surround": null,
+      "rating": 3,
+      "features": [
+        "Spill-resistant",
+        "Media keys",
+        "LightSync zones"
+      ],
+      "newproduct": true,
+      "bestseller": false
+    },
+    {
+      "id": "aula-f2088",
+      "type": "keyboard",
+      "category": "keyboard",
+      "brand": "AULA",
+      "model": "F2088",
+      "name": "AULA F2088",
+      "price": 187.95,
+      "images": [
+        "img/aula-f2088-1.jpg",
+        "img/aula-f2088-2.jpg"
+      ],
+      "dimensions": {
+        "w": 440,
+        "l": 135,
+        "h": 38
+      },
+      "weight": 850,
+      "grip": null,
+      "handSizeFit": null,
+      "sensor": null,
+      "dpi": null,
+      "switch": null,
+      "polling": "1000 Hz",
+      "connectivity": "wired",
+      "battery": null,
+      "lighting": "RGB",
+      "layout": "100%",
+      "switchType": "Clicky",
+      "mic": null,
+      "drivers": null,
+      "surround": null,
+      "rating": 4,
+      "features": [
+        "Metal top plate",
+        "Double-shot keycaps",
+        "Anti-ghosting"
+      ],
+      "newproduct": false,
+      "bestseller": false
+    },
+    {
+      "id": "huntsman-mini",
+      "type": "keyboard",
+      "category": "keyboard",
+      "brand": "Razer",
+      "model": "Huntsman Mini",
+      "name": "Razer Huntsman Mini",
+      "price": 422.95,
+      "images": [
+        "img/huntsman-mini-1.jpg",
+        "img/huntsman-mini-2.jpg"
+      ],
+      "dimensions": {
+        "w": 293,
+        "l": 104,
+        "h": 37
+      },
+      "weight": 523,
+      "grip": null,
+      "handSizeFit": null,
+      "sensor": null,
+      "dpi": null,
+      "switch": null,
+      "polling": "1000 Hz",
+      "connectivity": "wired",
+      "battery": null,
+      "lighting": "RGB",
+      "layout": "60%",
+      "switchType": "Optical Linear",
+      "mic": null,
+      "drivers": null,
+      "surround": null,
+      "rating": 5,
+      "features": [
+        "Doubleshot PBT",
+        "Detachable USB-C",
+        "Aluminium top"
+      ],
+      "newproduct": false,
+      "bestseller": false
+    },
+    {
+      "id": "gpro-x-tkl",
+      "type": "keyboard",
+      "category": "keyboard",
+      "brand": "Logitech G",
+      "model": "Pro X TKL",
+      "name": "Logitech G Pro X TKL",
+      "price": 939.95,
+      "images": [
+        "img/gpro-x-tkl-1.jpg",
+        "img/gpro-x-tkl-2.jpg"
+      ],
+      "dimensions": {
+        "w": 352,
+        "l": 150,
+        "h": 34
+      },
+      "weight": 980,
+      "grip": null,
+      "handSizeFit": null,
+      "sensor": null,
+      "dpi": null,
+      "switch": null,
+      "polling": "1000 Hz",
+      "connectivity": "2.4G",
+      "battery": "50h",
+      "lighting": "RGB",
+      "layout": "TKL",
+      "switchType": "GX Linear",
+      "mic": null,
+      "drivers": null,
+      "surround": null,
+      "rating": 5,
+      "features": [
+        "Lightspeed wireless",
+        "Media wheel",
+        "PBT caps"
+      ],
+      "newproduct": true,
+      "bestseller": false
+    },
+    {
+      "id": "cloud-stinger",
+      "type": "headset",
+      "category": "headset",
+      "brand": "HyperX",
+      "model": "Cloud Stinger",
+      "name": "HyperX Cloud Stinger",
+      "price": 187.95,
+      "images": [
+        "img/cloud-stinger-1.jpg",
+        "img/cloud-stinger-2.jpg"
+      ],
+      "dimensions": {
+        "w": 150,
+        "l": 195,
+        "h": 80
+      },
+      "weight": 275,
+      "grip": null,
+      "handSizeFit": null,
+      "sensor": null,
+      "dpi": null,
+      "switch": null,
+      "polling": null,
+      "connectivity": "wired",
+      "battery": null,
+      "lighting": "none",
+      "layout": null,
+      "switchType": null,
+      "mic": "Swivel-to-mute",
+      "drivers": "50mm",
+      "surround": "Stereo",
+      "rating": 5,
+      "features": [
+        "Comfortable earcups",
+        "Steel slider",
+        "Inline control"
+      ],
+      "newproduct": false,
+      "bestseller": true
+    },
+    {
+      "id": "g435",
+      "type": "headset",
+      "category": "headset",
+      "brand": "Logitech G",
+      "model": "G435 Lightspeed",
+      "name": "Logitech G G435 Lightspeed",
+      "price": 281.95,
+      "images": [
+        "img/g435-1.jpg",
+        "img/g435-2.jpg"
+      ],
+      "dimensions": {
+        "w": 163,
+        "l": 180,
+        "h": 75
+      },
+      "weight": 165,
+      "grip": null,
+      "handSizeFit": null,
+      "sensor": null,
+      "dpi": null,
+      "switch": null,
+      "polling": null,
+      "connectivity": "multi",
+      "battery": "18h",
+      "lighting": "none",
+      "layout": null,
+      "switchType": null,
+      "mic": "Dual beamforming",
+      "drivers": "40mm",
+      "surround": "Stereo",
+      "rating": 3,
+      "features": [
+        "Ultra-light 165g",
+        "BT + 2.4G",
+        "Youth fit"
+      ],
+      "newproduct": true,
+      "bestseller": true
+    },
+    {
+      "id": "blackshark-v2",
+      "type": "headset",
+      "category": "headset",
+      "brand": "Razer",
+      "model": "BlackShark V2",
+      "name": "Razer BlackShark V2",
+      "price": 469.95,
+      "images": [
+        "img/blackshark-v2-1.jpg",
+        "img/blackshark-v2-2.jpg"
+      ],
+      "dimensions": {
+        "w": 170,
+        "l": 200,
+        "h": 90
+      },
+      "weight": 262,
+      "grip": null,
+      "handSizeFit": null,
+      "sensor": null,
+      "dpi": null,
+      "switch": null,
+      "polling": null,
+      "connectivity": "wired",
+      "battery": null,
+      "lighting": "none",
+      "layout": null,
+      "switchType": null,
+      "mic": "Detachable",
+      "drivers": "50mm",
+      "surround": "7.1",
+      "rating": 5,
+      "features": [
+        "TriForce drivers",
+        "THX Spatial",
+        "USB sound card"
+      ],
+      "newproduct": false,
+      "bestseller": false
+    },
+    {
+      "id": "gpro-x-wl",
+      "type": "headset",
+      "category": "headset",
+      "brand": "Logitech G",
+      "model": "Pro X Wireless",
+      "name": "Logitech G Pro X Wireless",
+      "price": 939.95,
+      "images": [
+        "img/gpro-x-wl-1.jpg",
+        "img/gpro-x-wl-2.jpg"
+      ],
+      "dimensions": {
+        "w": 170,
+        "l": 200,
+        "h": 95
+      },
+      "weight": 320,
+      "grip": null,
+      "handSizeFit": null,
+      "sensor": null,
+      "dpi": null,
+      "switch": null,
+      "polling": null,
+      "connectivity": "2.4G",
+      "battery": "20h",
+      "lighting": "none",
+      "layout": null,
+      "switchType": null,
+      "mic": "Detachable",
+      "drivers": "50mm",
+      "surround": "DTS 7.1",
+      "rating": 5,
+      "features": [
+        "Blue VO!CE",
+        "DTS Headphone:X 2.0",
+        "Pro-G drivers"
+      ],
+      "newproduct": true,
+      "bestseller": false
+    }
+  ]
+}

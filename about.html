@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>techHive - About Us</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid d-none border-bottom d-lg-block">
+        <div class="row align-items-center">
+            <div class="col-lg-4 text-center text-lg-start mb-lg-0">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a href="guide.html" class="text-muted me-2"> Help</a>
+                    <a href="contact.html" class="text-muted me-2"> Support</a>
+                    <a href="contact.html" class="text-muted me-2"> Contact</a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center d-flex align-items-center justify-content-center">
+                <small class="text-dark">Call Us:</small>
+                <a href="#" class="text-muted">+60 16-234 5393</a>
+            </div>
+
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a href="login.html" class="btn">Login</a>
+                    <a href="index.html" class="text-muted ms-2">
+                        <i class="fa fa-home me-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid px-5 py-4 d-none d-lg-block">
+        <div class="row gx-0 align-items-center text-center">
+            <div class="col-md-4 col-lg-3 text-center text-lg-start">
+                <div class="d-inline-flex align-items-center">
+                    <a href="" class="navbar-brand p-0">
+                        <h1 class="display-5 text-primary m-0"><i
+                                class="fas fa-shopping-bag text-secondary me-2"></i>techHive
+                        </h1>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-3 ms-auto text-end">
+                <div class="d-inline-flex align-items-center">
+                    <a href="cart.html" class="text-muted d-flex align-items-center justify-content-center">
+                        <span class="rounded-circle btn-md-square border"><i class="fas fa-shopping-cart"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid nav-bar p-0">
+        <div class="row gx-0 bg-primary px-5 align-items-center">
+
+            <div class="col-lg-3 d-none d-lg-block">
+                <nav class="navbar navbar-light position-relative" style="width: 250px;">
+                    <button class="navbar-toggler border-0 fs-4 w-100 px-0 text-start" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#allCat">
+                        <h4 class="m-0"><i class="fa fa-bars me-2"></i>All Pages</h4>
+                    </button>
+
+                    <div class="collapse navbar-collapse rounded-bottom mt-2" id="allCat">
+                        <ul class="list-unstyled categories-bars mb-0">
+                            <li>
+                                <div class="categories-bars-item">
+                                    <a href="index.html" class="active">Home</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="categories-bars-item">
+                                    <a href="about.html">About</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="categories-bars-item">
+                                    <a href="contact.html">Contact</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="categories-bars-item">
+                                    <a href="shop.html">Shop</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="categories-bars-item">
+                                    <a href="compare.html">Compare</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="categories-bars-item">
+                                    <a href="product-detail.html">Detail</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="categories-bars-item">
+                                    <a href="guide.html">Guide</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="col-12 col-lg-9">
+                <nav class="navbar navbar-expand-lg navbar-light bg-primary ">
+                    <a href="" class="navbar-brand d-block d-lg-none">
+                        <h1 class="display-5 text-secondary m-0"><i
+                                class="fas fa-shopping-bag text-white me-2"></i>Electro</h1>
+                    </a>
+                    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarCollapse">
+                        <span class="fa fa-bars fa-1x"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <div class="navbar-nav ms-auto py-0">
+                            <a href="index.html" class="nav-item nav-link">Home</a>
+                            <a href="shop.html" class="nav-item nav-link">Shop</a>
+                            <a href="bestseller.html" class="nav-item nav-link">New & Best Seller</a>
+                            <a href="guide.html" class="nav-item nav-link">Guide</a>
+                            <a href="about.html" class="nav-item nav-link active">About Us</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar & Hero End -->
+
+    <!-- Single Page Header start -->
+    <div class="container-fluid page-header py-5">
+        <h1 class="text-center text-white display-6 wow fadeInUp" data-wow-delay="0.1s">About Us</h1>
+        <ol class="breadcrumb justify-content-center mb-0 wow fadeInUp" data-wow-delay="0.3s">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="shop.html">Shop</a></li>
+            <li class="breadcrumb-item active text-white">About</li>
+        </ol>
+    </div>
+    <!-- Single Page Header End -->
+
+    <!-- About Us Start -->
+
+    <!-- About: Mission & Promise -->
+    <section class="about-copy py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <h2 class="h3 fw-bold mb-3">Our Mission</h2>
+                    <p class="text-muted mb-0">
+                        We connect you with thoughtfully designed accessories that feel natural to use. TechHive cuts
+                        through the noise
+                        and curates products with advanced wireless tech, meaningful value, and sustainable design—so
+                        interaction with your
+                        tools stays fluid, intuitive, and comfortable.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="h3 fw-bold mb-3">Our Promise</h2>
+                    <p class="text-muted mb-0">
+                        We stand behind every product we sell. Our team lives and breathes tech, helping you find the
+                        best fit for your needs.
+                        From guidance to after-sales support, your satisfaction is our priority.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About: What We Offer (cards) -->
+    <section class="about-offer py-5">
+        <div class="container">
+            <h2 class="h3 fw-bold text-center mb-4">What We Offer</h2>
+            <p class="text-muted text-center mb-5">Performance, sustainability, and clean aesthetics for home, office,
+                and on-the-go.</p>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="offer-card card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="offer-icon mb-3"><i class="fa fa-keyboard"></i></div>
+                            <h3 class="h5 fw-bold">Mechanical Keyboards</h3>
+                            <p class="text-muted mb-0">From clicky to linear, durable builds with thoughtful layouts and
+                                PBT caps.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="offer-card card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="offer-icon mb-3"><i class="fa fa-mouse-pointer"></i></div>
+                            <h3 class="h5 fw-bold">Precision Mice</h3>
+                            <p class="text-muted mb-0">Ergonomic shells, pro sensors, and ultra-low latency wireless
+                                options.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="offer-card card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="offer-icon mb-3"><i class="fa fa-headphones"></i></div>
+                            <h3 class="h5 fw-bold">Audio & Headsets</h3>
+                            <p class="text-muted mb-0">Crystal-clear sound with lightweight comfort for work, play, and
+                                calls.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About: Stats strip -->
+    <section class="about-stats py-5">
+        <div class="container">
+            <div class="row text-center g-4">
+                <div class="col-6 col-md-3">
+                    <div class="stat-value">50+</div>
+                    <div class="stat-label text-muted">Curated Products</div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-value">15+</div>
+                    <div class="stat-label text-muted">Top Brands</div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-value">4.8★</div>
+                    <div class="stat-label text-muted">Avg. Rating</div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-value">24/7</div>
+                    <div class="stat-label text-muted">Support</div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <a class="btn btn-primary rounded-pill py-3 px-5" href="index.html">Go Back To Home</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us End -->
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>techHive - bestseller</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid d-none border-bottom d-lg-block">
+        <div class="row align-items-center">
+            <div class="col-lg-4 text-center text-lg-start mb-lg-0">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a href="guide.html" class="text-muted me-2"> Help</a>
+                    <a href="contact.html" class="text-muted me-2"> Support</a>
+                    <a href="contact.html" class="text-muted me-2"> Contact</a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center d-flex align-items-center justify-content-center">
+                <small class="text-dark">Call Us:</small>
+                <a href="#" class="text-muted">+60 16-234 5393</a>
+            </div>
+
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a href="login.html" class="btn">Login</a>
+                    <a href="index.html" class="text-muted ms-2">
+                        <i class="fa fa-home me-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid px-5 py-4 d-none d-lg-block">
+        <div class="row gx-0 align-items-center text-center">
+            <div class="col-md-4 col-lg-3 text-center text-lg-start">
+                <div class="d-inline-flex align-items-center">
+                    <a href="" class="navbar-brand p-0">
+                        <h1 class="display-5 text-primary m-0"><i
+                                class="fas fa-shopping-bag text-secondary me-2"></i>techHive
+                        </h1>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-3 ms-auto text-end">
+                <div class="d-inline-flex align-items-center">
+                    <a href="cart.html" class="text-muted d-flex align-items-center justify-content-center">
+                        <span class="rounded-circle btn-md-square border"><i class="fas fa-shopping-cart"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid nav-bar p-0">
+        <div class="row gx-0 bg-primary px-5 align-items-center">
+
+            <div class="col-lg-3 d-none d-lg-block">
+                <nav class="navbar navbar-light position-relative" style="width: 250px;">
+                    <button class="navbar-toggler border-0 fs-4 w-100 px-0 text-start" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#allCat">
+                        <h4 class="m-0"><i class="fa fa-bars me-2"></i>All Pages</h4>
+                    </button>
+
+                    <div class="collapse navbar-collapse rounded-bottom mt-2" id="allCat">
+                        <ul class="list-unstyled categories-bars mb-0">
+                            <li>
+                                <div class="categories-bars-item">
+                                    <a href="index.html" class="active">Home</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="categories-bars-item">
+                                    <a href="about.html">About</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="categories-bars-item">
+                                    <a href="contact.html">Contact</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="categories-bars-item">
+                                    <a href="shop.html">Shop</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="categories-bars-item">
+                                    <a href="compare.html">Compare</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="categories-bars-item">
+                                    <a href="product-detail.html">Detail</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="categories-bars-item">
+                                    <a href="guide.html">Guide</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="col-12 col-lg-9">
+                <nav class="navbar navbar-expand-lg navbar-light bg-primary ">
+                    <a href="" class="navbar-brand d-block d-lg-none">
+                        <h1 class="display-5 text-secondary m-0"><i
+                                class="fas fa-shopping-bag text-white me-2"></i>Electro</h1>
+                    </a>
+                    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarCollapse">
+                        <span class="fa fa-bars fa-1x"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <div class="navbar-nav ms-auto py-0">
+                            <a href="index.html" class="nav-item nav-link">Home</a>
+                            <a href="shop.html" class="nav-item nav-link">Shop</a>
+                            <a href="bestseller.html" class="nav-item nav-link active">New & Best Seller</a>
+                            <a href="guide.html" class="nav-item nav-link">Guide</a>
+                            <a href="about.html" class="nav-item nav-link me-2">About Us</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar & Hero End -->
+
+    <!-- Single Page Header start -->
+    <div class="container-fluid page-header py-5">
+        <h1 class="text-center text-white display-6 wow fadeInUp" data-wow-delay="0.1s">Bestseller Page</h1>
+        <ol class="breadcrumb justify-content-center mb-0 wow fadeInUp" data-wow-delay="0.3s">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="shop.html">Shop</a></li>
+            <li class="breadcrumb-item active text-white">Bestseller</li>
+        </ol>
+    </div>
+    <!-- Single Page Header End -->
+
+
+    <!-- Bestseller Products Start -->
+    <div class="container-fluid products pt-5">
+        <div class="container products-mini py-5">
+            <div class="mx-auto text-center mb-5" style="max-width: 700px;">
+                <h4 class="text-primary mb-4 border-bottom border-primary border-2 d-inline-block p-2 title-border-radius wow fadeInUp"
+                    data-wow-delay="0.1s">Bestseller Products</h4>
+                <p class="mb-0 wow fadeInUp" data-wow-delay="0.2s">
+                    Our top products loved by customers.
+                </p>
+            </div>
+
+            <!-- 🔹 Empty row: JS will insert bestseller product cards here -->
+            <div class="row g-4" id="bestseller-container"></div>
+        </div>
+    </div>
+
+    <!-- Bestseller Products End -->
+
+
+    <!-- Our Products Start -->
+    <!-- OUR PRODUCTS: tabs populated by displayOurProducts() -->
+    <div class="container-fluid products pt-5">
+        <div class="container py-5">
+            <div class="mx-auto text-center mb-5" style="max-width: 700px;">
+                <h4
+                    class="text-primary mb-4 border-bottom border-primary border-2 d-inline-block p-2 title-border-radius">
+                    Our Products
+                </h4>
+                <p class="mb-0">Browse new arrivals, and top selling.</p>
+            </div>
+
+            <!-- Nav Pills -->
+            <ul class="nav nav-pills justify-content-center mb-4" id="ourProductsTabs" role="tablist">
+                <li class="nav-item">
+                    <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-1" type="button"
+                        role="tab">
+                        All Products
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-2" type="button" role="tab">
+                        New Arrivals
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-4" type="button" role="tab">
+                        Top Selling
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content" id="productTabContent">
+                <!-- All Products Tab -->
+                <div class="tab-pane fade show active" id="tab-1" role="tabpanel">
+                    <div class="row g-4" id="all-products-grid">
+                        <!-- All products will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- New Arrivals Tab -->
+                <div class="tab-pane fade" id="tab-2" role="tabpanel">
+                    <div class="row g-4" id="new-arrivals-grid">
+                        <!-- New arrivals will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Top Selling Tab -->
+                <div class="tab-pane fade" id="tab-4" role="tabpanel">
+                    <div class="row g-4" id="top-selling-grid">
+                        <!-- Top selling will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- About -->
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>At <strong>techHive</strong> we curate performance PC peripherals you’ll actually love—mice,
+                        keyboards and headsets from trusted brands. We compare specs, test real-world feel, and price
+                        them fairly so you can build a setup that’s fast, reliable and within budget.</p>
+
+                    <div class="social-links">
+                        <!-- Instagram -->
+                        <a href="#" class="social-link" aria-label="Instagram" title="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"></circle>
+                            </svg>
+                        </a>
+                        <!-- Facebook -->
+                        <a href="#" class="social-link" aria-label="Facebook" title="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07C2 17.1 5.66 21.25 10.44 22v-7.02H7.9v-2.91h2.54V9.41c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.25c-1.24 0-1.62.77-1.62 1.56v1.87h2.77l-.44 2.91h-2.33V22C18.34 21.25 22 17.1 22 12.07z">
+                                </path>
+                            </svg>
+                        </a>
+                        <!-- X -->
+                        <a href="#" class="social-link" aria-label="X" title="X">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M3 2h6.9l4.4 5.1L21 2h0l-7.6 8.7L22 22h-6.8l-5.2-6L4.2 22H3.1l8.4-9.4L3 2z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="compare.html">Compare</a></li>
+                        <li><a href="guide.html">Product Guides</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Care (replaces Services) -->
+                <div class="footer-section">
+                    <h3>Customer Care</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Order Tracking</a></li>
+                        <li><a href="#">Shipping &amp; Delivery</a></li>
+                        <li><a href="#">Returns &amp; Warranty</a></li>
+                        <li><a href="#">Payment Methods</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info"><i>📍</i>
+                        <span>Universiti Tunku Abdul Rahman (UTAR), Jalan Universiti, Bandar Barat, 31900 Kampar,
+                            Perak</span>
+                    </div>
+                    <div class="contact-info"><i>📞</i><span>05-468 8888</span></div>
+                    <div class="contact-info"><i>✉️</i><span>study.utar.edu.my</span></div>
+                    <div class="newsletter" aria-label="Subscribe to our newsletter">
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="copyright">© 2025 techHive. All rights reserved.</div>
+                    <ul class="footer-bottom-links">
+                        <li><a href="https://shorturl.at/xazgL">Privacy Policy</a></li>
+                        <li><a href="https://shorturl.at/D7IUG">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="js/shop.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>techHive - contact</title>
+    
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/ctstyles.css">
+    
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .contact-container {
+            position: static !important;
+            top: auto !important;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 60px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Telegram card styling */
+        #telegramCard {
+            background: #0088cc;
+        }
+        
+        #telegramCard .contact-icon {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        #telegramCard h3 {
+            color: white;
+        }
+        
+        #telegramCard p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        #telegramCard.active-mode {
+            background: #0088cc;
+            box-shadow: 0 15px 30px rgba(0, 136, 204, 0.3);
+        }
+        
+        /* Inactive card styling */
+        .contact-card.inactive-mode {
+            background: #6a737b !important;
+            opacity: 0.6;
+            transform: scale(0.98);
+        }
+        
+        .contact-card.inactive-mode .contact-icon {
+            background: rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        .contact-card.inactive-mode h3 {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+        
+        .contact-card.inactive-mode p {
+            color: rgba(255, 255, 255, 0.5) !important;
+        }
+        
+        /* Update form mode colors */
+        .contact-form.telegram-mode {
+            border-color: rgba(0, 136, 204, 0.3);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        @media (max-width: 768px) {
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body class="contact-page">
+    <!-- Topbar Start -->
+    <div class="container-fluid d-none border-bottom d-lg-block">
+        <div class="row align-items-center">
+            <div class="col-lg-4 text-center text-lg-start mb-lg-0">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a href="guide.html" class="text-muted me-2"> Help</a>
+                    <a href="contact.html" class="text-muted me-2"> Support</a>
+                    <a href="contact.html" class="text-muted me-2"> Contact</a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center d-flex align-items-center justify-content-center">
+                <small class="text-dark">Call Us:</small>
+                <a href="#" class="text-muted">+60 16-234 5393</a>
+            </div>
+
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a href="login.html" class="btn">Login</a>
+                    <a href="index.html" class="text-muted ms-2">
+                        <i class="fa fa-home me-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid px-5 py-4 d-none d-lg-block">
+        <div class="row gx-0 align-items-center text-center">
+            <div class="col-md-4 col-lg-3 text-center text-lg-start">
+                <div class="d-inline-flex align-items-center">
+                    <a href="" class="navbar-brand p-0">
+                        <h1 class="display-5 text-primary m-0"><i
+                                class="fas fa-shopping-bag text-secondary me-2"></i>techHive
+                        </h1>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-3 ms-auto text-end">
+                <div class="d-inline-flex align-items-center">
+                    <a href="cart.html" class="text-muted d-flex align-items-center justify-content-center">
+                        <span class="rounded-circle btn-md-square border"><i class="fas fa-shopping-cart"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid nav-bar p-0">
+        <div class="row gx-0 bg-primary px-5 align-items-center">
+
+            <div class="col-lg-3 d-none d-lg-block">
+                <nav class="navbar navbar-light position-relative" style="width: 250px;">
+                    <button class="navbar-toggler border-0 fs-4 w-100 px-0 text-start" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#allCat">
+                        <h4 class="m-0"><i class="fa fa-bars me-2"></i>All Pages</h4>
+                    </button>
+
+                    <div class="collapse navbar-collapse rounded-bottom mt-2" id="allCat">
+                        <ul class="list-unstyled categories-bars mb-0">
+                            <li>
+                                <div class="categories-bars-item">
+                                    <a href="index.html" class="active">Home</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="categories-bars-item">
+                                    <a href="about.html">About</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="categories-bars-item">
+                                    <a href="contact.html">Contact</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="categories-bars-item">
+                                    <a href="shop.html">Shop</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="categories-bars-item">
+                                    <a href="compare.html">Compare</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="categories-bars-item">
+                                    <a href="product-detail.html">Detail</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="categories-bars-item">
+                                    <a href="guide.html">Guide</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="col-12 col-lg-9">
+                <nav class="navbar navbar-expand-lg navbar-light bg-primary ">
+                    <a href="" class="navbar-brand d-block d-lg-none">
+                        <h1 class="display-5 text-secondary m-0"><i
+                                class="fas fa-shopping-bag text-white me-2"></i>techHive</h1>
+                    </a>
+                    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarCollapse">
+                        <span class="fa fa-bars fa-1x"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <div class="navbar-nav ms-auto py-0">
+                            <a href="index.html" class="nav-item nav-link">Home</a>
+                            <a href="shop.html" class="nav-item nav-link">Shop</a>
+                            <a href="bestseller.html" class="nav-item nav-link">New & Best Seller</a>
+                            <a href="guide.html" class="nav-item nav-link">Guide</a>
+                            <a href="about.html" class="nav-item nav-link me-2">About Us</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar & Hero End -->
+
+    <!-- Single Page Header start -->
+    <div class="container-fluid page-header py-5">
+        <h1 class="text-center text-white display-6 wow fadeInUp" data-wow-delay="0.1s">Contact Page</h1>
+        <ol class="breadcrumb justify-content-center mb-0 wow fadeInUp" data-wow-delay="0.3s">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="shop.html">Shop</a></li>
+            <li class="breadcrumb-item active text-white">Contact</li>
+        </ol>
+    </div>
+    <!-- Single Page Header End -->
+
+    <div class="contact-container">
+        <div class="contact-header">
+            <h1>Contact</h1>
+            <p>Kindly contact us if doubt in product.</p>
+        </div>
+
+        <div class="contact-info">
+            <div class="contact-card" id="emailCard" data-aos="fade-up" data-aos-delay="100">
+                <div class="contact-icon">✉️</div>
+                <h3>E-mail</h3>
+                <p>zhengquanchin@gmail.com</p>
+                <div class="card-hint">Click to compose email</div>
+            </div>
+            <div class="contact-card" id="whatsappCard" data-aos="fade-up" data-aos-delay="200">
+                <div class="contact-icon">💬</div>
+                <h3>WhatsApp</h3>
+                <p>+60 113 326 9308</p> 
+                <div class="card-hint">Click for WhatsApp mode</div>
+            </div>
+            <div class="contact-card" id="telegramCard" data-aos="fade-up" data-aos-delay="300">
+                <div class="contact-icon">📱</div>
+                <h3>Telegram</h3>
+                <p>@zhengquanchin</p> 
+                <div class="card-hint">Click for Telegram mode</div>
+            </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+            <div class="form-mode-indicator">
+                <span id="formModeText">WhatsApp Mode</span>
+                <div class="mode-description">Fill out the form below and click submit to send via WhatsApp, or click the email card above to compose in Gmail directly, or click Telegram card for Telegram mode.</div>
+            </div>
+            
+            <div class="form-row" id="nameRow">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="E.g. John Sina" required>
+                </div>
+            </div>
+            
+            <div class="form-group" id="emailGroup" style="display: none;">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="E.g. email@example.com">
+            </div>
+            
+            <div class="form-group" id="subjectGroup" style="display: none;">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" class="form-control" placeholder="E.g. Room Booking">
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" class="form-control" placeholder="E.g. How large is this keyboard size?" required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn" id="submitBtn">Send to WhatsApp</button>
+        </form>
+    </div>
+        
+    <!-- Footer Start -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>We're passionate about creating exceptional digital experiences that connect, inspire, and drive
+                        meaningful results for our clients and their communities.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">📘</a>
+                        <a href="#" class="social-link" aria-label="Twitter">🦅</a>
+                        <a href="#" class="social-link" aria-label="WhatsApp">💼</a>
+                        <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Digital Marketing</a></li>
+                        <li><a href="#">E-commerce</a></li>
+                        <li><a href="#">SEO Optimization</a></li>
+                        <li><a href="#">Branding</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <i>📍</i>
+                        <span>123 Business St, City, State 12345</span>
+                    </div>
+                    <div class="contact-info">
+                        <i>📞</i>
+                        <span>+1 (555) 123-4567</span>
+                    </div>
+                    <div class="contact-info">
+                        <i>✉️</i>
+                        <span>hello@company.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        © 2025 techHive. All rights reserved.
+                    </div>
+                    <ul class="footer-bottom-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            const whatsappNumber = "60113326908";
+            const telegramURL = "https://t.me/zhengquanchin"; // Updated to use direct link
+            const emailAddress = "zhengquanchin@gmail.com";
+            
+            let currentMode = 'whatsapp'; // Default mode
+
+            // Initialize WhatsApp mode as default
+            $('#whatsappCard').addClass('active-mode');
+            $('#telegramCard').addClass('inactive-mode');
+            $('.contact-form').addClass('whatsapp-mode');
+            $('#submitBtn').css('background', 'linear-gradient(135deg, #25d366, #128c7e)');
+
+            // Email card click event - redirect to Gmail compose
+            $('#emailCard').on('click', function() {
+                $(this).addClass('clicked-effect');
+                
+                const name = $('#name').val() || '';
+                const message = $('#message').val() || '';
+                
+                let gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailAddress}`;
+                
+                if (name || message) {
+                    const subject = `Contact from ${name || 'Website Visitor'}`;
+                    const body = message ? `Hello,\n\nMy name is ${name}.\n\n${message}\n\nBest regards,\n${name}` : '';
+                    
+                    gmailURL += `&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                }
+                
+                const originalIcon = $(this).find('.contact-icon').html();
+                $(this).find('.contact-icon').html('📧');
+                $(this).find('h3').text('Opening Gmail...');
+                
+                setTimeout(() => {
+                    window.open(gmailURL, '_blank');
+                    
+                    $(this).removeClass('clicked-effect');
+                    $(this).find('.contact-icon').html(originalIcon);
+                    $(this).find('h3').text('E-mail');
+                }, 500);
+            });
+
+            // WhatsApp card click event
+            $('#whatsappCard').on('click', function() {
+                if (currentMode === 'whatsapp') {
+                    $(this).addClass('pulse-effect');
+                    setTimeout(() => $(this).removeClass('pulse-effect'), 600);
+                    return;
+                }
+                
+                // Switch to WhatsApp mode
+                currentMode = 'whatsapp';
+                
+                // Update card states
+                $('.contact-card').removeClass('active-mode inactive-mode');
+                $(this).addClass('active-mode');
+                $('#telegramCard').addClass('inactive-mode');
+                // Email card stays normal (neither active nor inactive)
+                
+                // Update form
+                $('.contact-form').removeClass('telegram-mode').addClass('whatsapp-mode');
+                $('#formModeText').text('WhatsApp Mode');
+                $('.mode-description').text('Fill out the form below and click submit to send via WhatsApp, or click the email card above to compose in Gmail directly, or click Telegram card for Telegram mode.');
+                $('#submitBtn').text('Send to WhatsApp').css('background', 'linear-gradient(135deg, #25d366, #128c7e)');
+            });
+
+            // Telegram card click event
+            $('#telegramCard').on('click', function() {
+                if (currentMode === 'telegram') {
+                    $(this).addClass('pulse-effect');
+                    setTimeout(() => $(this).removeClass('pulse-effect'), 600);
+                    return;
+                }
+                
+                // Switch to Telegram mode
+                currentMode = 'telegram';
+                
+                // Update card states
+                $('.contact-card').removeClass('active-mode inactive-mode');
+                $(this).addClass('active-mode');
+                $('#whatsappCard').addClass('inactive-mode');
+                // Email card stays normal (neither active nor inactive)
+                
+                // Update form
+                $('.contact-form').removeClass('whatsapp-mode').addClass('telegram-mode');
+                $('#formModeText').text('Telegram Mode');
+                $('.mode-description').text('Fill out the form below and click submit to send via Telegram, or click the email card above to compose in Gmail directly, or click WhatsApp card for WhatsApp mode.');
+                $('#submitBtn').text('Send to Telegram').css('background', 'linear-gradient(135deg, #0088cc, #006699)');
+            });
+
+            // Form submission handling
+            $('#contactForm').on('submit', function(e) {
+                e.preventDefault();
+                
+                const $btn = $('#submitBtn');
+                const originalText = $btn.text();
+                const name = $('#name').val();
+                const message = $('#message').val();
+                
+                if (currentMode === 'whatsapp') {
+                    // WhatsApp submission
+                    $btn.text('Opening WhatsApp...').css('background', 'linear-gradient(135deg, #128c7e, #075e54)').prop('disabled', true);
+                    
+                    const whatsappMessage = `Hello! My name is ${name}.%0A%0A${message}`;
+                    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+                    
+                    setTimeout(() => {
+                        window.open(whatsappURL, '_blank');
+                        
+                        $btn.text('Message Sent to WhatsApp!').css('background', 'linear-gradient(135deg, #48bb78, #38a169)');
+                        
+                        setTimeout(() => {
+                            $btn.text(originalText).css('background', 'linear-gradient(135deg, #25d366, #128c7e)').prop('disabled', false);
+                            $('#contactForm')[0].reset();
+                        }, 2000);
+                    }, 1000);
+                } else if (currentMode === 'telegram') {
+                    // Telegram submission - Updated to use direct link
+                    $btn.text('Opening Telegram...').css('background', 'linear-gradient(135deg, #006699, #004466)').prop('disabled', true);
+                    
+                    const telegramMessage = `Hello! My name is ${name}.\n\n${message}`;
+                    const fullTelegramURL = `${telegramURL}?text=${encodeURIComponent(telegramMessage)}`;
+                    
+                    setTimeout(() => {
+                        window.open(fullTelegramURL, '_blank');
+                        
+                        $btn.text('Message Sent to Telegram!').css('background', 'linear-gradient(135deg, #00aaff, #0088cc)');
+                        
+                        setTimeout(() => {
+                            $btn.text(originalText).css('background', 'linear-gradient(135deg, #0088cc, #006699)').prop('disabled', false);
+                            $('#contactForm')[0].reset();
+                        }, 2000);
+                    }, 1000);
+                }
+            });
+
+            // Form field animations
+            $('.form-control').on('focus', function() {
+                $(this).parent().css('transform', 'scale(1.02)');
+            }).on('blur', function() {
+                $(this).parent().css('transform', 'scale(1)');
+            });
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</body>
+</html>
