@@ -649,6 +649,24 @@
     }
 }
 
+@media (max-width: 576px) {
+  .products-mini-item {
+    height: auto;              /* let height adjust naturally */
+  }
+  .products-mini-img {
+    height: 180px;             /* fixed image height on very small screens */
+  }
+  .products-mini-content {
+    padding: 15px;
+  }
+  .product-title {
+    font-size: 16px;
+  }
+  .product-price {
+    font-size: 15px;
+  }
+}
+
 /*** bestseller Products End ***/
 
 /*** Pagination Start ***/
@@ -976,3 +994,4 @@
   width: 20px; height: 20px; display: block;
 
 }
+
