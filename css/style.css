@@ -556,20 +556,11 @@
     height: 100%;
 }
 
-/* Default image styling */
 .products-mini-img img {
   width: 100%;
   max-height: 160px;    /* limit how tall it can get */
   object-fit: contain;  /* shrink to fit, no crop */
   padding: 8px;         /* add white space around */
-}
-
-/* Even smaller on very small phones */
-@media (max-width: 576px) {
-  .products-mini-img img {
-    max-height: 120px;
-    padding: 6px;
-  }
 }
 
 
@@ -609,7 +600,6 @@
     font-weight: 500;
 }
 
-/* Fixed hover overlay */
 .products-mini-add {
   position: absolute;
   left: 0; right: 0; bottom: 0;
@@ -659,7 +649,7 @@
 
 @media (max-width: 576px) {
   .products-mini-item {
-    height: auto;              /* let height adjust naturally */
+    height: auto;             /* let height adjust naturally */
   }
   .products-mini-img {
     height: 180px;             /* fixed image height on very small screens */
@@ -674,7 +664,13 @@
     font-size: 15px;
   }
 }
-
+/* Even smaller on very small phones */
+@media (max-width: 576px) {
+  .products-mini-img img {
+    max-height: 120px;
+    padding: 6px;
+  }
+}
 /*** bestseller Products End ***/
 
 /*** Pagination Start ***/
@@ -1000,7 +996,4 @@
 
 .social-link svg{
   width: 20px; height: 20px; display: block;
-
 }
-
-
