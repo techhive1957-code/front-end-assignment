@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/ctstyles.css">
-    
+
 
 
     <!-- Customized Bootstrap Stylesheet -->
@@ -125,7 +125,7 @@
 
             <div class="col-lg-4 text-center text-lg-end">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-            
+
                     <a href="index.html" class="text-muted ms-2">
                         <i class="fa fa-home me-2"></i>
                     </a>
@@ -134,7 +134,7 @@
         </div>
     </div>
 
-    <div class="container-fluid px-5 py-4 d-lg-block">
+    <div class="container-fluid px-5 py-4 d-none d-lg-block">
         <div class="row gx-0 align-items-center text-center">
             <div class="col-md-4 col-lg-3 text-center text-lg-start">
                 <div class="d-inline-flex align-items-center">
@@ -162,6 +162,24 @@
                     </a>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-white sticky-top d-lg-none">
+        <div class="d-flex align-items-center py-2 px-3">
+            <a href="index.html" class="navbar-brand m-0 me-auto">
+                <span class="h5 m-0 text-primary fw-bold">techHive</span>
+            </a>
+
+            <!-- icons right on mobile -->
+            <a href="login.html" class="text-muted me-2 fs-5"><i class="fas fa-user"></i></a>
+            <a href="cart.html" class="text-muted fs-5"><i class="fas fa-shopping-cart"></i></a>
+
+            <!-- burger (opens the orange navbar collapse) -->
+            <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
         </div>
     </div>
     <!-- Topbar End -->
