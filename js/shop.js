@@ -370,8 +370,318 @@ let filteredProducts = [...products];
 let cart = JSON.parse(localStorage.getItem('cart') || '[]');
 
 // Initialize the page
-displayProducts(products);
-updateCartUI();
+document.addEventListener('DOMContentLoaded', function() {
+    displayProducts(products);
+    updateCartUI();
+    
+    // Restore filters from session when page loads
+    restoreFiltersOnLoad();
+});
+
+// ===== FILTER PERSISTENCE SYSTEM =====
+const FILTERS_STORAGE_KEY = 'shopFilters';
+
+// Save current filters to sessionStorage
+function saveFilters(filters) {
+    try {
+        const filtersToSave = {
+            category: filters.category || 'all',
+            brand: filters.brand || 'all',
+            searchTerm: filters.searchTerm || '',
+            sortBy: filters.sortBy || 'default',
+            timestamp: Date.now()
+        };
+        sessionStorage.setItem(FILTERS_STORAGE_KEY, JSON.stringify(filtersToSave));
+        console.log('Filters saved:', filtersToSave);
+    } catch (e) {
+        console.warn('Failed to save filters to sessionStorage:', e);
+    }
+}
+
+// Load filters from sessionStorage
+function loadFilters() {
+    try {
+        const raw = sessionStorage.getItem(FILTERS_STORAGE_KEY);
+        if (!raw) return getDefaultFilters();
+        
+        const parsed = JSON.parse(raw);
+        return {
+            category: parsed.category || 'all',
+            brand: parsed.brand || 'all',
+            searchTerm: parsed.searchTerm || '',
+            sortBy: parsed.sortBy || 'default'
+        };
+    } catch (e) {
+        console.warn('Failed to load filters from sessionStorage:', e);
+        return getDefaultFilters();
+    }
+}
+
+// Get default filter state
+function getDefaultFilters() {
+    return {
+        category: 'all',
+        brand: 'all',
+        searchTerm: '',
+        sortBy: 'default'
+    };
+}
+
+// Restore filters when page loads
+function restoreFiltersOnLoad() {
+    const savedFilters = loadFilters();
+    
+    // Apply the saved filters
+    applyAllFilters(savedFilters);
+    
+    // Update UI to reflect saved state
+    updateFilterUI(savedFilters);
+    
+    console.log('Filters restored on page load:', savedFilters);
+}
+
+// ===== CATEGORY FILTERING =====
+const CATEGORY_MAP = {
+    'all': 'all',
+    'all categories': 'all',
+    'mouse': 'mouse',
+    'mice': 'mouse',
+    'mouses': 'mouse',
+    'keyboard': 'keyboard',
+    'keyboards': 'keyboard',
+    'headset': 'headset',
+    'headsets': 'headset'
+};
+
+// Filter by category
+window.filterProducts = function(category) {
+    const currentFilters = loadFilters();
+    const normalizedCategory = CATEGORY_MAP[norm(category)] || category || 'all';
+    
+    const newFilters = {
+        ...currentFilters,
+        category: normalizedCategory
+    };
+    
+    saveFilters(newFilters);
+    applyAllFilters(newFilters);
+    updateFilterUI(newFilters);
+};
+
+// ===== BRAND FILTERING =====
+const BRAND_MAP = {
+    'all': 'all',
+    'logitech': 'logitech g',
+    'logitech g': 'logitech g',
+    'razer': 'razer',
+    'pulsar': 'pulsar',
+    'hyperx': 'hyperx',
+    'aula': 'aula'
+};
+
+// Filter by brand
+window.filterProductsBrand = function(brand) {
+    const currentFilters = loadFilters();
+    const normalizedBrand = BRAND_MAP[norm(brand)] || brand || 'all';
+    
+    const newFilters = {
+        ...currentFilters,
+        brand: normalizedBrand
+    };
+    
+    saveFilters(newFilters);
+    applyAllFilters(newFilters);
+    updateFilterUI(newFilters);
+};
+
+// ===== SEARCH FUNCTIONALITY =====
+window.searchProducts = function(searchTerm) {
+    const currentFilters = loadFilters();
+    
+    const newFilters = {
+        ...currentFilters,
+        searchTerm: searchTerm || ''
+    };
+    
+    saveFilters(newFilters);
+    applyAllFilters(newFilters);
+    updateFilterUI(newFilters);
+};
+
+// ===== SORT FUNCTIONALITY =====
+window.sortProducts = function(sortBy) {
+    const currentFilters = loadFilters();
+    
+    const newFilters = {
+        ...currentFilters,
+        sortBy: sortBy || 'default'
+    };
+    
+    saveFilters(newFilters);
+    applyAllFilters(newFilters);
+    updateFilterUI(newFilters);
+};
+
+// ===== APPLY ALL FILTERS =====
+function applyAllFilters(filters) {
+    if (!Array.isArray(products) || !products.length) return;
+
+    let filtered = [...products];
+    
+    // Apply category filter
+    if (filters.category && filters.category !== 'all') {
+        const wantCat = norm(filters.category);
+        filtered = filtered.filter(p => norm(p.category) === wantCat);
+    }
+    
+    // Apply brand filter
+    if (filters.brand && filters.brand !== 'all') {
+        const wantBrand = norm(filters.brand);
+        filtered = filtered.filter(p => norm(p.brand).includes(wantBrand));
+    }
+    
+    // Apply search filter
+    if (filters.searchTerm && filters.searchTerm.trim()) {
+        const searchLower = filters.searchTerm.toLowerCase();
+        filtered = filtered.filter(p => 
+            p.name.toLowerCase().includes(searchLower) ||
+            p.category.toLowerCase().includes(searchLower) ||
+            p.brand.toLowerCase().includes(searchLower) ||
+            p.model.toLowerCase().includes(searchLower)
+        );
+    }
+    
+    // Apply sorting
+    if (filters.sortBy && filters.sortBy !== 'default') {
+        switch (filters.sortBy) {
+            case 'name':
+                filtered.sort((a, b) => a.name.localeCompare(b.name));
+                break;
+            case 'price-asc':
+                filtered.sort((a, b) => a.price - b.price);
+                break;
+            case 'price-desc':
+                filtered.sort((a, b) => b.price - a.price);
+                break;
+            case 'rating':
+                filtered.sort((a, b) => b.rating - a.rating);
+                break;
+            case 'newest':
+                filtered.sort((a, b) => b.newproduct - a.newproduct);
+                break;
+            case 'bestseller':
+                filtered.sort((a, b) => b.bestseller - a.bestseller);
+                break;
+        }
+    }
+    
+    filteredProducts = filtered;
+    displayProducts(filteredProducts);
+    
+    console.log(`Applied filters: Category=${filters.category}, Brand=${filters.brand}, Search="${filters.searchTerm}", Sort=${filters.sortBy}`);
+    console.log(`Results: ${filtered.length} products found`);
+}
+
+// ===== UPDATE UI TO REFLECT CURRENT FILTERS =====
+function updateFilterUI(filters) {
+    // Update category active states
+    setActiveCategory(filters.category);
+    
+    // Update brand active states  
+    setActiveBrand(filters.brand);
+    
+    // Update search input
+    const searchInput = document.querySelector('#search-input, .search-input, input[type="search"]');
+    if (searchInput && filters.searchTerm) {
+        searchInput.value = filters.searchTerm;
+    }
+    
+    // Update sort dropdown
+    const sortSelect = document.querySelector('#sort-select, .sort-select');
+    if (sortSelect && filters.sortBy) {
+        sortSelect.value = filters.sortBy;
+    }
+}
+
+// ===== CLEAR ALL FILTERS =====
+window.clearAllFilters = function() {
+    const defaultFilters = getDefaultFilters();
+    saveFilters(defaultFilters);
+    applyAllFilters(defaultFilters);
+    updateFilterUI(defaultFilters);
+    
+    // Clear search input
+    const searchInput = document.querySelector('#search-input, .search-input, input[type="search"]');
+    if (searchInput) searchInput.value = '';
+    
+    console.log('All filters cleared');
+};
+
+// ===== ACTIVE STATE MANAGEMENT =====
+function setActiveCategory(category) {
+    const want = norm(category);
+    $('.category-link, .category-btn, #allCat a[data-category], [data-category]')
+        .removeClass('active text-primary fw-bold');
+    
+    $('.category-link, .category-btn, #allCat a[data-category], [data-category]').each(function() {
+        const dataCategory = $(this).data('category');
+        if (norm(dataCategory) === want || (want === 'all' && (!dataCategory || dataCategory === 'all'))) {
+            $(this).addClass('active text-primary fw-bold');
+        }
+    });
+}
+
+function setActiveBrand(brand) {
+    const want = norm(brand);
+    $('.brand-link, .brand-btn, #allBrand a[data-brand], [data-brand]')
+        .removeClass('active text-primary fw-bold');
+    
+    $('.brand-link, .brand-btn, #allBrand a[data-brand], [data-brand]').each(function() {
+        const dataBrand = $(this).data('brand');
+        if (norm(dataBrand) === want || (want === 'all' && (!dataBrand || dataBrand === 'all'))) {
+            $(this).addClass('active text-primary fw-bold');
+        }
+    });
+}
+
+// ===== EVENT HANDLERS =====
+
+// Category filter clicks
+$(document).on('click', '.category-link, .category-btn, #allCat a[data-category], [data-category]:not([data-brand])', function(e) {
+    e.preventDefault();
+    const cat = $(this).data('category') || 'all';
+    filterProducts(cat);
+});
+
+// Brand filter clicks  
+$(document).on('click', '.brand-link, .brand-btn, #allBrand a[data-brand], [data-brand]:not([data-category])', function(e) {
+    e.preventDefault();
+    const brand = $(this).data('brand') || 'all';
+    filterProductsBrand(brand);
+});
+
+// Search input handler
+$(document).on('input', '#search-input, .search-input, input[type="search"]', function() {
+    const searchTerm = $(this).val();
+    searchProducts(searchTerm);
+});
+
+// Sort dropdown handler
+$(document).on('change', '#sort-select, .sort-select', function() {
+    const sortBy = $(this).val();
+    sortProducts(sortBy);
+});
+
+// Clear filters button
+$(document).on('click', '#clearFilters, .clear-filters', function(e) {
+    e.preventDefault();
+    clearAllFilters();
+});
+
+// ===== UTILITY FUNCTIONS =====
+function norm(x) {
+    return (x || '').toString().trim().toLowerCase();
+}
 
 // Product display function for grid view
 function displayProducts(productsToShow) {
@@ -380,7 +690,7 @@ function displayProducts(productsToShow) {
 
     if (productsToShow.length === 0) {
         if (noProducts.length === 0) {
-            grid.after('<div id="noProducts" class="col-12 text-center"><h4>No products found</h4></div>');
+            grid.after('<div id="noProducts" class="col-12 text-center"><h4>No products found</h4><p>Try adjusting your filters or search terms.</p></div>');
         } else {
             noProducts.show();
         }
@@ -406,13 +716,11 @@ function displayProducts(productsToShow) {
                             <img src="${product.images[0]}" class="img-fluid w-100 rounded-top" alt="${product.name}">
                             </a>
 
-
                             <div class="text-center rounded-bottom p-4">
                                 <div class="d-block mb-2">${product.category}</div>
                                 <a href="product-detail.html?id=${product.id}" class="d-block h4 text-decoration-none">
                                     ${product.name}
                                 </a>
-
                                 <div class="me-2 fs-5">RM${product.price.toFixed(2)}</div>
                             </div>
                         </div>
@@ -428,7 +736,6 @@ function displayProducts(productsToShow) {
                                 <div class="d-flex">
                                     ${stars}
                                 </div>
-
                                 <div class="d-flex justify-content-end">
                                     <button type="button" 
                                         class="btn btn-outline-danger rounded-circle py-2 favourite-btn" 
@@ -465,16 +772,18 @@ function displayMiniProducts(productsToShow) {
       <div class="row g-0">
         <div class="col-5">
           <div class="products-mini-img border-end h-100">
-            <img src="${product.images[0]}" class="img-fluid w-200 h-100" alt="${product.name}">
+            <a class="product-item-inner-item" href="product-detail.html?id=${product.id}">
+                            <img src="${product.images[0]}" class="img-fluid w-100 rounded-top" alt="${product.name}">
+                            </a>
           </div>
         </div>
 
         <div class="col-7">
           <div class="products-mini-content p-3">
             <div class="d-block mb-2">${product.category}</div>
-            <a href="product-details.html?id=${product.id}" class="d-block h4 text-decoration-none">
-              ${product.name}
-            </a>
+             <a href="product-detail.html?id=${product.id}" class="d-block h4 text-decoration-none">
+                                    ${product.name}
+                                </a>
             <div class="me-2 fs-5">RM${product.price.toFixed(2)}</div>
           </div>
         </div>
@@ -517,19 +826,16 @@ function generateStars(rating) {
     return stars;
 }
 
-
-// REPLACE the whole handler with this (no parseInt; compare as strings)
+// ===== CART FUNCTIONALITY =====
 $(document).off('click', '.add-to-cart').on('click', '.add-to-cart', function (e) {
     e.preventDefault();
 
-    const id = String($(this).data('id'));           // <- keep as string
+    const id = String($(this).data('id'));
     if (!id) return;
 
-    // find product by string id
     const product = (Array.isArray(products) ? products : []).find(p => String(p.id) === id);
     if (!product) return;
 
-    // normalize for cart
     const item = {
         id,
         name: product.name || 'Unnamed',
@@ -540,7 +846,6 @@ $(document).off('click', '.add-to-cart').on('click', '.add-to-cart', function (e
         quantity: 1
     };
 
-    // insert/update cart
     const existing = cart.find(i => String(i.id) === id);
     if (existing) existing.quantity += 1;
     else cart.push(item);
@@ -550,8 +855,6 @@ $(document).off('click', '.add-to-cart').on('click', '.add-to-cart', function (e
     showAddToCartMessage(product.name);
 });
 
-
-// ---- Cart UI ----
 function updateCartUI() {
     const cartCount = cart.reduce((t, it) => t + (Number(it.quantity) || 0), 0);
     const cartTotal = cart.reduce((t, it) => t + (Number(it.price) || 0) * (Number(it.quantity) || 0), 0);
@@ -559,11 +862,9 @@ function updateCartUI() {
     $('.cart-count').text(cartCount);
     $('.cart-total').text('RM' + cartTotal.toFixed(2));
 
-    // keep storage in sync
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-// ---- Toast ----
 function showAddToCartMessage(productName) {
     const html = `
     <div class="cart-notification position-fixed top-0 end-0 m-3 p-3 bg-success text-white rounded shadow"
@@ -572,7 +873,7 @@ function showAddToCartMessage(productName) {
     </div>`;
     const $old = $('.cart-notification');
 
-    if ($old.length) $old.remove(); // replace if one is already showing
+    if ($old.length) $old.remove();
     $('body').append(html);
 
     setTimeout(() => {
@@ -580,215 +881,7 @@ function showAddToCartMessage(productName) {
     }, 1600);
 }
 
-
-function norm(x) { return (x || '').toString().trim().toLowerCase(); }
-
-const CATEGORY_MAP = {
-    // universal
-    'all': 'all',
-    'all categories': 'all',
-
-    // mice
-    'mouse': 'mouse',
-    'mice': 'mouse',
-    'mouses': 'mouse',
-
-    // keyboards
-    'keyboard': 'keyboard',
-    'keyboards': 'keyboard',
-
-    // headsets
-    'headset': 'headset',
-    'headsets': 'headset'
-};
-
-
-// --- filtering ---
-window.filterProducts = function (category) {
-    if (!Array.isArray(products) || !products.length) return; // products not loaded yet
-
-    const want = norm(CATEGORY_MAP[norm(category)] || category);
-
-    if (want === 'all' || want === '') {
-        filteredProducts = [...products];
-    } else {
-        filteredProducts = products.filter(p => norm(p.category) === want);
-    }
-
-    displayProducts(filteredProducts);
-    setActiveCategory(category);
-};
-
-// --- active state across ALL menus (links OR buttons) ---
-function setActiveCategory(category) {
-    const want = norm(category);
-    // Clear everywhere
-    $('.category-link, .category-btn, #allCat a[data-category]').removeClass('active text-primary fw-bold');
-    // Set on matching items
-    $('.category-link, .category-btn, #allCat a[data-category]').each(function () {
-        if (norm($(this).data('category')) === want) {
-            $(this).addClass('active text-primary fw-bold');
-        }
-    });
-}
-
-// --- counts for every categories block (desktop + mobile) ---
-function updateCategoryCounts() {
-    if (!Array.isArray(products)) return;
-
-    const counts = {};
-    products.forEach(p => {
-        const key = norm(p.category);
-        counts[key] = (counts[key] || 0) + 1;
-    });
-    const total = products.length;
-
-    // For each categories list, write counts next to each item
-    $('.product-categories .list-unstyled').each(function () {
-        $(this).find('[data-category]').each(function () {
-            const cat = $(this).data('category');
-            const span = $(this).closest('.categories-item').find('span'); // <-- define span
-            const key = norm(CATEGORY_MAP[norm(cat)] || cat);
-
-            if (key === 'all') {
-                span.text(`(${total})`);
-            } else {
-                span.text(`(${counts[key] || 0})`);
-            }
-        });
-    });
-}
-
-// --- one delegated click handler for links + buttons everywhere ---
-// CATEGORY clicks -> call filterProductsCat
-$(document).on('click', '.category-link, .category-btn, #allCat a[data-category]', function (e) {
-    e.preventDefault();
-    const cat = $(this).data('category') || 'all';
-    filterProducts(cat);
-});
-
-// BRAND clicks -> call filterProductsBrand
-$(document).on('click', '.brand-link, .brand-btn, #allBrand a[data-brand]', function (e) {
-    e.preventDefault();
-    const brand = $(this).data('brand') || 'all';
-    filterProductsBrand(brand);
-});
-
-
-// --- after loading JSON, call these ---
-function onProductsLoaded() {
-    filteredProducts = [...products];
-    updateCategoryCounts();
-    filterProducts('all'); // initial view
-}
-
-
-// Delegated click: any click on a category triggers filter
-$(document).on('click', '#allCat a[data-category]', function (e) {
-    e.preventDefault();
-    const cat = $(this).data('category');
-    filterProducts(cat);
-});
-
-// Map UI labels to data brands when they differ
-const BRAND_MAP = {
-    'all': 'all',
-    'logitech': 'logitech',
-    'logitech g': 'logitech',
-    'razer': 'razer',
-    'pulsar': 'pulsar',
-    'hyperx': 'hyperx'
-};
-
-// --- filtering (BRAND) ---
-window.filterProductsBrand = function (brand) {
-    if (!Array.isArray(products) || !products.length) return;
-
-    const want = norm(BRAND_MAP[norm(brand)] || brand);
-
-    if (want === 'all' || want === '') {
-        filteredProducts = [...products];
-    } else {
-        // brand values like "Logitech G" should match "logitech"
-        filteredProducts = products.filter(p => norm(p.brand).includes(want));
-    }
-
-    displayProducts(filteredProducts);
-    setActiveBrand(brand);
-};
-
-// --- active state (BRAND) ---
-function setActiveBrand(brand) {
-    const want = norm(brand);
-    $('.brand-link, .brand-btn, #allBrand a[data-brand]')
-        .removeClass('active text-primary fw-bold');
-
-    $('.brand-link, .brand-btn, #allBrand a[data-brand]').each(function () {
-        if (norm($(this).data('brand')) === want) {
-            $(this).addClass('active text-primary fw-bold');
-        }
-    });
-}
-
-
-// Search functionality
-window.searchProducts = function (searchTerm) {
-    if (!searchTerm) {
-        filteredProducts = [...products];
-    } else {
-        filteredProducts = products.filter(product =>
-            product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            product.category.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-    }
-    displayProducts(filteredProducts);
-};
-
-// Sort functionality
-$(document).ready(function () {
-    $('#sort-select').on('change', function () {
-        const sortBy = $(this).val(); // get selected value
-        let sorted = [...filteredProducts]; // clone current products
-
-        switch (sortBy) {
-            case 'name':
-                sorted.sort((a, b) => a.name.localeCompare(b.name));
-                break;
-            case 'price-asc':
-                sorted.sort((a, b) => a.price - b.price);
-                break;
-            case 'price-desc':
-                sorted.sort((a, b) => b.price - a.price);
-                break;
-            case 'rating':
-                sorted.sort((a, b) => b.rating - a.rating);
-                break;
-            default:
-                sorted = [...products]; // reset to original
-        }
-        filteredProducts = sorted; // update global
-        displayProducts(filteredProducts);
-    });
-});
-
-function storeCookie() {
-    var email = prompt("Enter your email:");
-    if (!email) return;
-
-    var password = prompt("Enter your password:");
-    if (!password) return;
-
-    var expDate = new Date();
-    expDate.setMinutes(expDate.getMinutes() + 5);
-
-    // FIX: use "=" not "-"
-    document.cookie = "email=" + encodeURIComponent(email) + ";expires=" + expDate.toUTCString() + ";path=/";
-    document.cookie = "password=" + encodeURIComponent(password) + ";expires=" + expDate.toUTCString() + ";path=/";
-
-    alert("Cookie stored successfully!");
-    window.location.href = "Q1Detail.html";
-}
-
+// ===== PRODUCT DISPLAY FUNCTIONS FOR HOME PAGE =====
 function generateBadges(product) {
     let html = "";
     if (product.bestseller) {
@@ -800,59 +893,6 @@ function generateBadges(product) {
     return html;
 }
 
-function displayBestsellers() {
-    const container = document.getElementById("bestseller-container");
-    if (!container) return;
-
-    // Filter best sellers
-    const bestsellers = products.filter(p => p.bestseller === true);
-
-    // Limit to top 3 (optional)
-    const top3 = bestsellers.slice(0, 3);
-
-    // Build HTML
-    container.innerHTML = top3.map(product => `
-    <div class="col-md-6 col-lg-6 col-xl-4">
-      <div class="products-mini-item border">
-        <div class="row g-0">
-          <div class="col-5">
-            <div class="products-mini-img border-end h-100">
-              <img src="${product.images[0]}" class="img-fluid w-100 h-100" alt="${product.name}">
-            </div>
-          </div>
-          <div class="col-7">
-            <div class="products-mini-content p-3">
-              <div class="mb-1">${generateBadges(product)}</div>
-              <a href="#" class="d-block mb-2">${product.category}</a>
-              <a href="product-details.html?id=${product.id}" class="d-block h4">${product.name}</a>
-              <span class="text-primary fs-5">RM${product.price.toFixed(2)}</span>
-            </div>
-          </div>
-        </div>
-        <div class="products-mini-add border p-3">
-          <button class="btn btn-primary rounded-pill py-2 px-4 add-to-cart" data-id="${product.id}">
-            <i class="fas fa-shopping-cart me-2"></i> Add To Cart
-          </button>
-        </div>
-      </div>
-    </div>
-  `).join("");
-}
-
-displayBestsellers();
-
-function generateBadges(product) {
-    let html = "";
-    if (product.bestseller) {
-        html += `<span class="badge bg-danger me-1">Best Seller</span>`;
-    }
-    if (product.newproduct) {
-        html += `<span class="badge bg-success">New</span>`;
-    }
-    return html;
-}
-
-// Function to display bestseller products
 function displayBestsellers(containerId = "bestseller-container", limit = null) {
     const container = document.getElementById(containerId);
     if (!container) {
@@ -860,10 +900,7 @@ function displayBestsellers(containerId = "bestseller-container", limit = null) 
         return;
     }
 
-    // Filter bestseller products
     const bestsellers = products.filter(p => p.bestseller === true);
-
-    // Apply limit if specified
     const displayProducts = limit ? bestsellers.slice(0, limit) : bestsellers;
 
     if (displayProducts.length === 0) {
@@ -875,7 +912,6 @@ function displayBestsellers(containerId = "bestseller-container", limit = null) 
         return;
     }
 
-    // Generate HTML for bestseller products
     container.innerHTML = displayProducts.map(product => `
         <div class="col-md-6 col-lg-6 col-xl-4">
             <div class="products-mini-item border rounded">
@@ -889,7 +925,9 @@ function displayBestsellers(containerId = "bestseller-container", limit = null) 
                         <div class="products-mini-content p-3">
                             <div class="mb-1">${generateBadges(product)}</div>
                             <a href="#" class="d-block mb-2 text-muted small text-uppercase">${product.category}</a>
-                            <a href="product-details.html?id=${product.id}" class="d-block h5 text-decoration-none text-dark mb-2">${product.name}</a>
+                            <a href="product-detail.html?id=${product.id}" class="d-block h4 text-decoration-none">
+                                    ${product.name}
+                                </a>
                             <div class="d-flex align-items-center mb-2">
                                 <span class="text-primary fs-5 fw-bold">RM${product.price.toFixed(2)}</span>
                                 <div class="ms-2">${generateStars(product.rating)}</div>
@@ -909,7 +947,6 @@ function displayBestsellers(containerId = "bestseller-container", limit = null) 
     console.log(`Displayed ${displayProducts.length} bestseller products`);
 }
 
-// Function to display new products
 function displayNewProducts(containerId = "new-products-container", limit = null) {
     const container = document.getElementById(containerId);
     if (!container) {
@@ -917,10 +954,7 @@ function displayNewProducts(containerId = "new-products-container", limit = null
         return;
     }
 
-    // Filter new products
     const newProducts = products.filter(p => p.newproduct === true);
-
-    // Apply limit if specified
     const displayProducts = limit ? newProducts.slice(0, limit) : newProducts;
 
     if (displayProducts.length === 0) {
@@ -932,7 +966,6 @@ function displayNewProducts(containerId = "new-products-container", limit = null
         return;
     }
 
-    // Generate HTML for new products
     container.innerHTML = displayProducts.map(product => `
         <div class="col-md-6 col-lg-6 col-xl-4">
             <div class="products-mini-item border rounded">
@@ -946,7 +979,9 @@ function displayNewProducts(containerId = "new-products-container", limit = null
                         <div class="products-mini-content p-3">
                             <div class="mb-1">${generateBadges(product)}</div>
                             <a href="#" class="d-block mb-2 text-muted small text-uppercase">${product.category}</a>
-                            <a href="product-details.html?id=${product.id}" class="d-block h5 text-decoration-none text-dark mb-2">${product.name}</a>
+                            <a href="product-detail.html?id=${product.id}" class="d-block h4 text-decoration-none">
+                                    ${product.name}
+                                </a>
                             <div class="d-flex align-items-center mb-2">
                                 <span class="text-primary fs-5 fw-bold">RM${product.price.toFixed(2)}</span>
                                 <div class="ms-2">${generateStars(product.rating)}</div>
@@ -966,7 +1001,6 @@ function displayNewProducts(containerId = "new-products-container", limit = null
     console.log(`Displayed ${displayProducts.length} new products`);
 }
 
-// Function to display both bestsellers and new products in tabs
 function displayOurProducts() {
     const tabsContainer = document.getElementById('productTabContent');
     if (!tabsContainer) {
@@ -974,16 +1008,10 @@ function displayOurProducts() {
         return;
     }
 
-    // All products
     const allProducts = products.filter(p => p.newproduct === true || p.bestseller === true);
-
-    // New arrivals (filter by newproduct flag)
     const newArrivals = products.filter(p => p.newproduct === true);
-
-    // Top selling (filter by bestseller flag)
     const topSelling = products.filter(p => p.bestseller === true);
 
-    // Function to generate product card HTML
     function generateProductCard(product) {
         return `
             <div class="col-lg-4 col-md-6 mb-4">
@@ -999,9 +1027,10 @@ function displayOurProducts() {
                         <div class="text-center rounded-bottom p-4 flex-grow-1 d-flex flex-column justify-content-between">
                             <div>
                                 <div class="d-block mb-2 text-muted small text-uppercase">${product.category}</div>
-                                <a href="product-details.html?id=${product.id}" class="d-block h5 text-decoration-none text-dark mb-3">
+                                <a href="product-detail.html?id=${product.id}" class="d-block h4 text-decoration-none">
                                     ${product.name}
                                 </a>
+
                                 <div class="d-flex justify-content-center align-items-center mb-3">
                                     <span class="me-3 fs-5 fw-bold text-primary">RM${product.price.toFixed(2)}</span>
                                     <div>${generateStars(product.rating)}</div>
@@ -1022,7 +1051,6 @@ function displayOurProducts() {
         `;
     }
 
-    // Populate each tab
     const tabs = [
         { id: 'all-products-grid', products: allProducts },
         { id: 'new-arrivals-grid', products: newArrivals },
@@ -1046,24 +1074,17 @@ function displayOurProducts() {
 }
 
 // Initialize functions when DOM is loaded
-document.addEventListener('DOMContentLoaded', function () {
-    // Display bestsellers on page load
-    displayBestsellers('bestseller-container', 6); // Limit to 6 products
-
-    // Display new products if container exists
-    displayNewProducts('new-products-container', 6); // Limit to 6 products
-
-    // Display products in tabs
+document.addEventListener('DOMContentLoaded', function() {
+    displayBestsellers('bestseller-container', 6);
+    displayNewProducts('new-products-container', 6);
     displayOurProducts();
 });
 
-// Alternative function to get bestsellers data (useful for other purposes)
 function getBestsellers(limit = null) {
     const bestsellers = products.filter(p => p.bestseller === true);
     return limit ? bestsellers.slice(0, limit) : bestsellers;
 }
 
-// Alternative function to get new products data (useful for other purposes)
 function getNewProducts(limit = null) {
     const newProducts = products.filter(p => p.newproduct === true);
     return limit ? newProducts.slice(0, limit) : newProducts;
