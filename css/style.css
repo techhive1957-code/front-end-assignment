@@ -565,8 +565,9 @@
 
 
 .products-mini-item:hover .products-mini-img img {
-    transform: scale(0.3);
+    transform: none;
 }
+
 
 .products-mini-content {
     height: 100%;
