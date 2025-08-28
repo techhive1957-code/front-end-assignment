@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
@@ -8,64 +7,217 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: orange;
-            /* main background */
+            background: linear-gradient(135deg, #ff8c42 0%, #ff6b1a 50%, #e55100 100%);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 193, 7, 0.4) 0%, transparent 70%),
+                radial-gradient(circle at 80% 20%, rgba(255, 87, 34, 0.4) 0%, transparent 70%),
+                radial-gradient(circle at 40% 40%, rgba(255, 152, 0, 0.3) 0%, transparent 60%);
+            animation: floatOrbs 8s ease-in-out infinite;
+        }
+        
+        body::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(255, 193, 7, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 90% 80%, rgba(255, 87, 34, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 70% 30%, rgba(255, 152, 0, 0.1) 0%, transparent 35%);
+            animation: rotateBackground 20s linear infinite;
+        }
+        
+        @keyframes floatOrbs {
+            0%, 100% { 
+                transform: translateY(0px) translateX(0px) scale(1); 
+                opacity: 1;
+            }
+            25% { 
+                transform: translateY(-20px) translateX(10px) scale(1.1); 
+                opacity: 0.8;
+            }
+            50% { 
+                transform: translateY(-10px) translateX(-15px) scale(0.9); 
+                opacity: 1;
+            }
+            75% { 
+                transform: translateY(15px) translateX(5px) scale(1.05); 
+                opacity: 0.9;
+            }
+        }
+        
+        @keyframes rotateBackground {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200px 0; }
+            100% { background-position: 200px 0; }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .login-box {
-            background: #fff;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             padding: 30px 40px;
-            border-radius: 10px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.07);
             width: 320px;
             text-align: center;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: slideInUp 0.8s ease-out, pulse 4s ease-in-out infinite;
         }
 
         .login-box h2 {
             margin-bottom: 20px;
             color: #ff6600;
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: slideInUp 0.8s ease-out 0.2s both;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .login-box h2::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shimmer 2s infinite;
         }
 
         .login-box input {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            border: 1px solid rgba(255, 102, 0, 0.3);
+            border-radius: 8px;
             font-size: 14px;
+            background: rgba(255,255,255,0.9);
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+            animation: fadeInLeft 0.8s ease-out 0.4s both;
+        }
+        
+        .login-box input:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        
+        .login-box input:focus {
+            outline: none;
+            border-color: #ff6600;
+            box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.1);
+            background: rgba(255,255,255,1);
+            transform: scale(1.02);
         }
 
         .login-box button {
             width: 100%;
             padding: 12px;
-            background: #ff6600;
+            background: linear-gradient(135deg, #ff8c42 0%, #ff6600 50%, #e55100 100%);
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             color: white;
             font-size: 16px;
             cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            animation: slideInUp 0.8s ease-out 0.6s both;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .login-box button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .login-box button:hover::before {
+            left: 100%;
         }
 
         .login-box button:hover {
             background: #e65c00;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(255, 102, 0, 0.4);
         }
 
         .login-box p {
             margin-top: 15px;
             font-size: 14px;
+            color: #666;
+            animation: slideInUp 0.8s ease-out 0.7s both;
         }
 
         .login-box a {
             color: #ff6600;
             text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
         }
 
         .login-box a:hover {
             text-decoration: underline;
+            color: #e55100;
+            transform: scale(1.05);
         }
     </style>
 </head>

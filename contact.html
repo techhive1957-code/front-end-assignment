@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>techHive - contact</title>
-    
+
 
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
@@ -19,9 +20,9 @@
 
     <!-- Icon Font Stylesheet -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="css/ctstyles.css">
-    
+    <link rel="stylesheet" href="css/styles.css">
+
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -31,7 +32,7 @@
             position: static !important;
             top: auto !important;
         }
-        
+
         .contact-info {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -41,59 +42,66 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         /* Telegram card styling */
         #telegramCard {
             background: #0088cc;
         }
-        
+
         #telegramCard .contact-icon {
             background: rgba(255, 255, 255, 0.2);
         }
-        
+
         #telegramCard h3 {
             color: white;
         }
-        
+
         #telegramCard p {
             color: rgba(255, 255, 255, 0.8);
         }
-        
+
         #telegramCard.active-mode {
             background: #0088cc;
             box-shadow: 0 15px 30px rgba(0, 136, 204, 0.3);
         }
-        
+
         /* Inactive card styling */
         .contact-card.inactive-mode {
             background: #6a737b !important;
             opacity: 0.6;
             transform: scale(0.98);
         }
-        
+
         .contact-card.inactive-mode .contact-icon {
             background: rgba(255, 255, 255, 0.1) !important;
         }
-        
+
         .contact-card.inactive-mode h3 {
             color: rgba(255, 255, 255, 0.7) !important;
         }
-        
+
         .contact-card.inactive-mode p {
             color: rgba(255, 255, 255, 0.5) !important;
         }
-        
+
         /* Update form mode colors */
         .contact-form.telegram-mode {
             border-color: rgba(0, 136, 204, 0.3);
             background: rgba(255, 255, 255, 0.9);
         }
-        
+
         @media (max-width: 768px) {
             .contact-info {
                 grid-template-columns: 1fr;
                 gap: 15px;
             }
+        }
+
+        .footer-contact {
+            display: flex;
+            /* or block */
+            align-items: center;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -104,8 +112,8 @@
         <div class="row align-items-center">
             <div class="col-lg-4 text-center text-lg-start mb-lg-0">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <a href="guide.html" class="text-muted me-2"> Help</a>
-                    <a href="contact.html" class="text-muted me-2"> Support</a>
+                    <a href="help.html" class="text-muted me-2"> Help</a>
+                    <a href="support.html" class="text-muted me-2"> Support</a>
                     <a href="contact.html" class="text-muted me-2"> Contact</a>
                 </div>
             </div>
@@ -116,7 +124,7 @@
 
             <div class="col-lg-4 text-center text-lg-end">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <a href="login.html" class="btn">Login</a>
+            
                     <a href="index.html" class="text-muted ms-2">
                         <i class="fa fa-home me-2"></i>
                     </a>
@@ -129,18 +137,27 @@
         <div class="row gx-0 align-items-center text-center">
             <div class="col-md-4 col-lg-3 text-center text-lg-start">
                 <div class="d-inline-flex align-items-center">
-                    <a href="" class="navbar-brand p-0">
+                    <a href="home.html" class="navbar-brand p-0">
                         <h1 class="display-5 text-primary m-0"><i
-                                class="fas fa-shopping-bag text-secondary me-2"></i>techHive
-                        </h1>
+                                class="fas fa-shopping-bag text-secondary me-2"></i>Plug & Play</h1>
                     </a>
                 </div>
             </div>
 
             <div class="col-md-4 col-lg-3 ms-auto text-end">
                 <div class="d-inline-flex align-items-center">
+                    <!-- Login icon -->
+                    <a href="login.html" class="text-muted d-flex align-items-center justify-content-center me-3">
+                        <span class="rounded-circle btn-md-square border">
+                            <i class="fas fa-user"></i>
+                        </span>
+                    </a>
+
+                    <!-- Cart icon -->
                     <a href="cart.html" class="text-muted d-flex align-items-center justify-content-center">
-                        <span class="rounded-circle btn-md-square border"><i class="fas fa-shopping-cart"></i></span>
+                        <span class="rounded-circle btn-md-square border">
+                            <i class="fas fa-shopping-cart"></i>
+                        </span>
                     </a>
                 </div>
             </div>
@@ -151,61 +168,11 @@
     <!-- Navbar & Hero Start -->
     <div class="container-fluid nav-bar p-0">
         <div class="row gx-0 bg-primary px-5 align-items-center">
-
-            <div class="col-lg-3 d-none d-lg-block">
-                <nav class="navbar navbar-light position-relative" style="width: 250px;">
-                    <button class="navbar-toggler border-0 fs-4 w-100 px-0 text-start" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#allCat">
-                        <h4 class="m-0"><i class="fa fa-bars me-2"></i>All Pages</h4>
-                    </button>
-
-                    <div class="collapse navbar-collapse rounded-bottom mt-2" id="allCat">
-                        <ul class="list-unstyled categories-bars mb-0">
-                            <li>
-                                <div class="categories-bars-item">
-                                    <a href="index.html" class="active">Home</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="categories-bars-item">
-                                    <a href="about.html">About</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="categories-bars-item">
-                                    <a href="contact.html">Contact</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="categories-bars-item">
-                                    <a href="shop.html">Shop</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="categories-bars-item">
-                                    <a href="compare.html">Compare</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="categories-bars-item">
-                                    <a href="product-detail.html">Detail</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="categories-bars-item">
-                                    <a href="guide.html">Guide</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-
-            <div class="col-12 col-lg-9">
-                <nav class="navbar navbar-expand-lg navbar-light bg-primary ">
+            <div class="col-12 col-lg-9 ms-auto">
+                <nav class="navbar navbar-expand-lg navbar-light bg-primary">
                     <a href="" class="navbar-brand d-block d-lg-none">
                         <h1 class="display-5 text-secondary m-0"><i
-                                class="fas fa-shopping-bag text-white me-2"></i>techHive</h1>
+                                class="fas fa-shopping-bag text-white me-2"></i>Plug & Play</h1>
                     </a>
                     <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarCollapse">
@@ -225,7 +192,7 @@
             </div>
         </div>
     </div>
-    <!-- Navbar & Hero End -->
+
 
     <!-- Single Page Header start -->
     <div class="container-fluid page-header py-5">
@@ -248,19 +215,19 @@
             <div class="contact-card" id="emailCard" data-aos="fade-up" data-aos-delay="100">
                 <div class="contact-icon">✉️</div>
                 <h3>E-mail</h3>
-                <p>zhengquanchin@gmail.com</p>
+                <p>techhive1957@gmail.com</p>
                 <div class="card-hint">Click to compose email</div>
             </div>
             <div class="contact-card" id="whatsappCard" data-aos="fade-up" data-aos-delay="200">
                 <div class="contact-icon">💬</div>
                 <h3>WhatsApp</h3>
-                <p>+60 113 326 9308</p> 
+                <p>+60 113 326 9308</p>
                 <div class="card-hint">Click for WhatsApp mode</div>
             </div>
             <div class="contact-card" id="telegramCard" data-aos="fade-up" data-aos-delay="300">
                 <div class="contact-icon">📱</div>
                 <h3>Telegram</h3>
-                <p>@zhengquanchin</p> 
+                <p>@zhengquanchin</p>
                 <div class="card-hint">Click for Telegram mode</div>
             </div>
         </div>
@@ -268,95 +235,118 @@
         <form class="contact-form" id="contactForm">
             <div class="form-mode-indicator">
                 <span id="formModeText">WhatsApp Mode</span>
-                <div class="mode-description">Fill out the form below and click submit to send via WhatsApp, or click the email card above to compose in Gmail directly, or click Telegram card for Telegram mode.</div>
+                <div class="mode-description">Fill out the form below and click submit to send via WhatsApp, or click
+                    the email card above to compose in Gmail directly, or click Telegram card for Telegram mode.</div>
             </div>
-            
+
             <div class="form-row" id="nameRow">
                 <div class="form-group">
                     <label for="name">Your Name</label>
                     <input type="text" id="name" name="name" class="form-control" placeholder="E.g. John Sina" required>
                 </div>
             </div>
-            
+
             <div class="form-group" id="emailGroup" style="display: none;">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" class="form-control" placeholder="E.g. email@example.com">
             </div>
-            
+
             <div class="form-group" id="subjectGroup" style="display: none;">
                 <label for="subject">Subject</label>
                 <input type="text" id="subject" name="subject" class="form-control" placeholder="E.g. Room Booking">
             </div>
-            
+
             <div class="form-group">
                 <label for="message">Message</label>
-                <textarea id="message" name="message" class="form-control" placeholder="E.g. How large is this keyboard size?" required></textarea>
+                <textarea id="message" name="message" class="form-control"
+                    placeholder="E.g. How large is this keyboard size?" required></textarea>
             </div>
-            
+
             <button type="submit" class="submit-btn" id="submitBtn">Send to WhatsApp</button>
         </form>
     </div>
-        
-    <!-- Footer Start -->
+
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-content">
+                <!-- About -->
                 <div class="footer-section">
                     <h3>About Us</h3>
-                    <p>We're passionate about creating exceptional digital experiences that connect, inspire, and drive
-                        meaningful results for our clients and their communities.</p>
+                    <p>At <strong>techHive</strong> we curate performance PC peripherals you’ll actually love—mice,
+                        keyboards and headsets from trusted brands. We compare specs, test real-world feel, and price
+                        them fairly so you can build a setup that’s fast, reliable and within budget.</p>
+
                     <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Facebook">📘</a>
-                        <a href="#" class="social-link" aria-label="Twitter">🦅</a>
-                        <a href="#" class="social-link" aria-label="WhatsApp">💼</a>
-                        <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/techhive1957/" class="social-link" aria-label="Instagram"
+                            title="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"></circle>
+                            </svg>
+                        </a>
+                        <!-- Facebook -->
+                        <a href="https://web.facebook.com/profile.php?id=61580047975004" class="social-link"
+                            aria-label="Facebook" title="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07C2 17.1 5.66 21.25 10.44 22v-7.02H7.9v-2.91h2.54V9.41c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.25c-1.24 0-1.62.77-1.62 1.56v1.87h2.77l-.44 2.91h-2.33V22C18.34 21.25 22 17.1 22 12.07z">
+                                </path>
+                            </svg>
+                        </a>
+                        <!-- X -->
+                        <a href="https://x.com/techHIve1957" class="social-link" aria-label="X" title="X">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M3 2h6.9l4.4 5.1L21 2h0l-7.6 8.7L22 22h-6.8l-5.2-6L4.2 22H3.1l8.4-9.4L3 2z">
+                                </path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
 
+                <!-- Quick Links -->
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="compare.html">Compare</a></li>
+                        <li><a href="guide.html">Product Guides</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
 
+                <!-- Customer Care (replaces Services) -->
                 <div class="footer-section">
-                    <h3>Services</h3>
+                    <h3>Customer Care</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Web Design</a></li>
-                        <li><a href="#">Digital Marketing</a></li>
-                        <li><a href="#">E-commerce</a></li>
-                        <li><a href="#">SEO Optimization</a></li>
-                        <li><a href="#">Branding</a></li>
-                        <li><a href="#">Consulting</a></li>
+                        <li><a href="#">Order Tracking</a></li>
+                        <li><a href="#">Shipping &amp; Delivery</a></li>
+                        <li><a href="#">Returns &amp; Warranty</a></li>
+                        <li><a href="#">Payment Methods</a></li>
+                        <li><a href="#">FAQ</a></li>
                     </ul>
                 </div>
 
+                <!-- Contact -->
                 <div class="footer-section">
                     <h3>Contact Info</h3>
-                    <div class="contact-info">
-                        <i>📍</i>
-                        <span>123 Business St, City, State 12345</span>
+                    <div class="contact-info"><i>📍</i>
+                        <span>Universiti Tunku Abdul Rahman (UTAR), Jalan Universiti, Bandar Barat, 31900 Kampar,
+                            Perak</span>
                     </div>
-                    <div class="contact-info">
-                        <i>📞</i>
-                        <span>+1 (555) 123-4567</span>
-                    </div>
-                    <div class="contact-info">
-                        <i>✉️</i>
-                        <span>hello@company.com</span>
+                    <div class="contact-info"><i>📞</i><span>05-468 8888</span></div>
+                    <div class="contact-info"><i>✉️</i><span>study.utar.edu.my</span></div>
+                    <div class="newsletter" aria-label="Subscribe to our newsletter">
                     </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
-                    <div class="copyright">
-                        © 2025 techHive. All rights reserved.
-                    </div>
+                    <div class="copyright">© 2025 techHive. All rights reserved.</div>
                     <ul class="footer-bottom-links">
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Terms of Service</a></li>
@@ -377,11 +367,11 @@
     <script src="js/main.js"></script>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             const whatsappNumber = "60113326908";
             const telegramURL = "https://t.me/zhengquanchin"; // Updated to use direct link
-            const emailAddress = "zhengquanchin@gmail.com";
-            
+            const emailAddress = "techhive1957@gmail.com";
+
             let currentMode = 'whatsapp'; // Default mode
 
             // Initialize WhatsApp mode as default
@@ -391,28 +381,28 @@
             $('#submitBtn').css('background', 'linear-gradient(135deg, #25d366, #128c7e)');
 
             // Email card click event - redirect to Gmail compose
-            $('#emailCard').on('click', function() {
+            $('#emailCard').on('click', function () {
                 $(this).addClass('clicked-effect');
-                
+
                 const name = $('#name').val() || '';
                 const message = $('#message').val() || '';
-                
+
                 let gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailAddress}`;
-                
+
                 if (name || message) {
                     const subject = `Contact from ${name || 'Website Visitor'}`;
                     const body = message ? `Hello,\n\nMy name is ${name}.\n\n${message}\n\nBest regards,\n${name}` : '';
-                    
+
                     gmailURL += `&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                 }
-                
+
                 const originalIcon = $(this).find('.contact-icon').html();
                 $(this).find('.contact-icon').html('📧');
                 $(this).find('h3').text('Opening Gmail...');
-                
+
                 setTimeout(() => {
                     window.open(gmailURL, '_blank');
-                    
+
                     $(this).removeClass('clicked-effect');
                     $(this).find('.contact-icon').html(originalIcon);
                     $(this).find('h3').text('E-mail');
@@ -420,22 +410,22 @@
             });
 
             // WhatsApp card click event
-            $('#whatsappCard').on('click', function() {
+            $('#whatsappCard').on('click', function () {
                 if (currentMode === 'whatsapp') {
                     $(this).addClass('pulse-effect');
                     setTimeout(() => $(this).removeClass('pulse-effect'), 600);
                     return;
                 }
-                
+
                 // Switch to WhatsApp mode
                 currentMode = 'whatsapp';
-                
+
                 // Update card states
                 $('.contact-card').removeClass('active-mode inactive-mode');
                 $(this).addClass('active-mode');
                 $('#telegramCard').addClass('inactive-mode');
                 // Email card stays normal (neither active nor inactive)
-                
+
                 // Update form
                 $('.contact-form').removeClass('telegram-mode').addClass('whatsapp-mode');
                 $('#formModeText').text('WhatsApp Mode');
@@ -444,22 +434,22 @@
             });
 
             // Telegram card click event
-            $('#telegramCard').on('click', function() {
+            $('#telegramCard').on('click', function () {
                 if (currentMode === 'telegram') {
                     $(this).addClass('pulse-effect');
                     setTimeout(() => $(this).removeClass('pulse-effect'), 600);
                     return;
                 }
-                
+
                 // Switch to Telegram mode
                 currentMode = 'telegram';
-                
+
                 // Update card states
                 $('.contact-card').removeClass('active-mode inactive-mode');
                 $(this).addClass('active-mode');
                 $('#whatsappCard').addClass('inactive-mode');
                 // Email card stays normal (neither active nor inactive)
-                
+
                 // Update form
                 $('.contact-form').removeClass('whatsapp-mode').addClass('telegram-mode');
                 $('#formModeText').text('Telegram Mode');
@@ -468,26 +458,26 @@
             });
 
             // Form submission handling
-            $('#contactForm').on('submit', function(e) {
+            $('#contactForm').on('submit', function (e) {
                 e.preventDefault();
-                
+
                 const $btn = $('#submitBtn');
                 const originalText = $btn.text();
                 const name = $('#name').val();
                 const message = $('#message').val();
-                
+
                 if (currentMode === 'whatsapp') {
                     // WhatsApp submission
                     $btn.text('Opening WhatsApp...').css('background', 'linear-gradient(135deg, #128c7e, #075e54)').prop('disabled', true);
-                    
+
                     const whatsappMessage = `Hello! My name is ${name}.%0A%0A${message}`;
                     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-                    
+
                     setTimeout(() => {
                         window.open(whatsappURL, '_blank');
-                        
+
                         $btn.text('Message Sent to WhatsApp!').css('background', 'linear-gradient(135deg, #48bb78, #38a169)');
-                        
+
                         setTimeout(() => {
                             $btn.text(originalText).css('background', 'linear-gradient(135deg, #25d366, #128c7e)').prop('disabled', false);
                             $('#contactForm')[0].reset();
@@ -496,15 +486,15 @@
                 } else if (currentMode === 'telegram') {
                     // Telegram submission - Updated to use direct link
                     $btn.text('Opening Telegram...').css('background', 'linear-gradient(135deg, #006699, #004466)').prop('disabled', true);
-                    
+
                     const telegramMessage = `Hello! My name is ${name}.\n\n${message}`;
                     const fullTelegramURL = `${telegramURL}?text=${encodeURIComponent(telegramMessage)}`;
-                    
+
                     setTimeout(() => {
                         window.open(fullTelegramURL, '_blank');
-                        
+
                         $btn.text('Message Sent to Telegram!').css('background', 'linear-gradient(135deg, #00aaff, #0088cc)');
-                        
+
                         setTimeout(() => {
                             $btn.text(originalText).css('background', 'linear-gradient(135deg, #0088cc, #006699)').prop('disabled', false);
                             $('#contactForm')[0].reset();
@@ -514,9 +504,9 @@
             });
 
             // Form field animations
-            $('.form-control').on('focus', function() {
+            $('.form-control').on('focus', function () {
                 $(this).parent().css('transform', 'scale(1.02)');
-            }).on('blur', function() {
+            }).on('blur', function () {
                 $(this).parent().css('transform', 'scale(1)');
             });
         });
@@ -524,4 +514,5 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
+
 </html>
